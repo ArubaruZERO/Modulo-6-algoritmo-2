@@ -1,0 +1,48 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: beige;
+}
+
+textarea{
+    width: 300px;
+    padding: 5px;
+    margin: 15px;
+    
+}
+p{
+    
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
+
+.mensaje textarea{
+    background-color: rgba(49, 3, 3, 0.211);
+}
+.mensaje-codificado textarea{
+    background-color: rgba(87, 96, 3, 0.34);
+}
+
+#encriptar {
+    width: 100px;
+    padding: 15px;
+    background-color: rgba(49, 3, 3, 0.864);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#desencriptar {
+    width: 100px;
+    padding: 15px;
+    background-color: rgb(87, 96, 3);
+    color: white;
+    padding: 12px 1px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+    

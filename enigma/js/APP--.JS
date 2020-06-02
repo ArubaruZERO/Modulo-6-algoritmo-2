@@ -14,64 +14,26 @@ var getEncryptedMessage=()=> document.getElementById("mensaje-encriptado").value
 
 
 
-
-
-//SECTION buscar letra en mensajes
-
-var searchLetterDesencryptedMessage = (getDesencryptedMessage , letter)=>{
-    for (var i = 0; i < getDesencryptedMessage.length; i++) {
-        if (getDesencryptedMessage[i] === letter) return i;
-        
-    }
-    return -1;
-}
-var searchLetterEncryptedMessage = (getEncryptedMessage , letter)=>{
-    for (var i = 0; i < getEncryptedMessage.length; i++) {
-        if (getEncryptedMessage[i] === letter) return i;
-        
-    }
-    return -1;
-}
-
-
-
-
 //SECTION intercambiar letra de texto por letra de texto encriptado
 
+var translateLetter = (letter,plainAlph,encryptAlph) => {
+    var index = plainAlph.indexOf(letter)
+    return encryptAlph[index];
 
-
-
-var encryptLetter = letter =>{
-    var index = plainAlphabet.indexOf(letter)
-    return encryptedAlphabet[index];
-}
-
-var desencryptLetter = letter =>{
-    var index = encryptedAlphabet.indexOf(letter)
-    return plainAlphabet[index];
 }
 
 
 //SECTION encriptar mensaje y desencriptar mensaje
 
- var encryptMessage = message =>{
-     var result = ""
+
+var translateMessage = (message, plainAlph, encryptAlph) => {
+    var result = ""
     for (var letter of message) {
-         result = result + encryptLetter(letter);
+         result = result + translateLetter(letter , plainAlph , encryptAlph);
         
      }
      return result;
- }
-
-
- var desencryptMessage = message =>{
-     var result = ""
-     for (var letter of message) {
-         result = result + desencryptLetter(letter)
-         
-     }
-     return result;
- }
+}
 
 
 
@@ -89,12 +51,13 @@ document.getElementById("desencriptar").addEventListener("click",()=> showDesenc
 
 function showEncryptedMessage() {
     let text = getDesencryptedMessage();
-    return document.getElementById("mensaje-encriptado").innerText = encryptMessage (text); 
+    document.getElementById("mensaje-encriptado").innerText=""
+    return document.getElementById("mensaje-encriptado").innerText = translateMessage (text, plainAlphabet, encryptedAlphabet); 
 }
 
 
 
 function showDesencryptedMessage() {
     let text = getEncryptedMessage();
-    return document.getElementById("mensaje").innerText = desencryptMessage (text); 
+    return document.getElementById("mensaje").innerText =  translateMessage (text, encryptedAlphabet, plainAlphabet); 
 }

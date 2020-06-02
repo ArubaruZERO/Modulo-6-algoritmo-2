@@ -51,7 +51,6 @@ document.getElementById("desencriptar").addEventListener("click",()=> showDesenc
 
 function showEncryptedMessage() {
     let text = getDesencryptedMessage();
-    document.getElementById("mensaje-encriptado").innerText=""
     return document.getElementById("mensaje-encriptado").innerText = translateMessage (text, plainAlphabet, encryptedAlphabet); 
 }
 
